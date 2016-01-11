@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 
-
 public interface UserRepository extends AbstractRepository<User>{
 
     void test();
@@ -17,4 +16,6 @@ public interface UserRepository extends AbstractRepository<User>{
     User getByCredentials(String lastName, String firstName) throws SQLException;
 
     List<User> getByRoleName(RoleName roleNames) throws SQLException;
+
+    User getByIndexNumber(Long indexNumber) throws SQLException;
 }

@@ -1,6 +1,5 @@
 package com.prz.systemkurier.enumerate;
 
-
 public enum RoleName {
 
     KURIER("KURIER"),

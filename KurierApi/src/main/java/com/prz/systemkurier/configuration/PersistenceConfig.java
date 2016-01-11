@@ -14,7 +14,6 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.util.Properties;
 
-
 @Configuration
 @EnableTransactionManagement
 public class PersistenceConfig {
@@ -40,7 +39,6 @@ public class PersistenceConfig {
         dataSource.setDriverClassName(environment.getProperty("database.driver"));
         dataSource.setUsername(environment.getProperty("database.user"));
         dataSource.setDefaultAutoCommit(true);
-        //dataSource.setDriverClassLoader(environment.getProperty("database.driver").getClass().getClassLoader());
         return dataSource;
     }
 

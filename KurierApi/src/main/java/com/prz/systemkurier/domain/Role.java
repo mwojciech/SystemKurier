@@ -5,7 +5,6 @@ import com.prz.systemkurier.enumerate.RoleName;
 import javax.persistence.*;
 import java.util.Date;
 
-
 @Entity(name = "ROLE")
 public class Role {
 

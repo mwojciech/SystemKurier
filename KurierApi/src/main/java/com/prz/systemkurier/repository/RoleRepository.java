@@ -5,7 +5,6 @@ import com.prz.systemkurier.enumerate.RoleName;
 
 import java.sql.SQLException;
 
-
 public interface RoleRepository extends AbstractRepository<Role>{
     Role getByName(RoleName name);
 

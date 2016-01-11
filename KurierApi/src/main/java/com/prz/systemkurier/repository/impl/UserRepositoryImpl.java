@@ -11,7 +11,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Repository
 @Transactional
 public class UserRepositoryImpl extends AbstractRepositoryImpl<User> implements UserRepository {
@@ -42,5 +41,10 @@ public class UserRepositoryImpl extends AbstractRepositoryImpl<User> implements 
         List<User> users = new ArrayList<User>();
         users = getCurrentSession().createCriteria(User.class).add(Restrictions.eq("roleName", roleName)).list();
         return users;
+    }
+
+    public User getByIndexNumber(Long indexNumber) throws SQLException {
+        return (User) getCurrentSession().createCriteria(User.class)
+                .add(Restrictions.eq("indexNumber", indexNumber)).uniqueResult();
     }
 }

@@ -1,0 +1,55 @@
+<div>
+    <div class="form-group col-md-3 col-md-offset-1">
+
+            <label for="name"><strong>{{$root.msg['st.name']}}</strong></label>
+            <input class="form-control" name="name" ng-model="pack.name" type="text"/>
+
+            <label for="description"><strong>{{$root.msg['st.description']}}</strong></label>
+            <input class="form-control" name="description" ng-model="pack.description" type="text"/>
+            <br>
+        </div>
+    <div class="form-group col-md-3 col-md-offset-1">
+            <label for="street"><strong>Street</strong></label>
+            <input class="form-control" name="street" ng-model="pack.street" type="text"/>
+
+            <label for="address"><strong>Address No</strong></label>
+            <input class="form-control" name="address" ng-model="pack.address" type="text"/>
+
+            <label for="city"><strong>City</strong></label>
+            <input class="form-control" name="city" ng-model="pack.city" type="text"/>
+
+            <label for="country"><strong>Country</strong></label>
+            <input class="form-control" name="country" ng-model="pack.country" type="text"/>
+
+            <label><strong>     </strong></label><br>
+            <button class="btn btn-default" ng-click="addPack()">
+                {{$root.msg['st.save']}}
+            </button>
+
+
+
+    </div>
+
+    <table class="table table-bordered table-stripped">
+        <tr class="header">
+            <th>{{$root.msg['st.name']}}</th>
+            <th>{{$root.msg['st.description']}}</th>
+            <th>{{$root.msg['st.createDate']}}</th>
+            <th>Street</th>
+            <th>Address No</th>
+            <th>City</th>
+            <th>Country</th>
+
+
+        </tr>
+        <tr ng-repeat="pack in packs">
+            <td>{{pack.name}}</td>
+            <td>{{pack.description}}</td>
+            <td>{{ pack.createDate | date : 'yyyy-MM-dd'}}</td>
+            <td>{{pack.street}}</td>
+            <td>{{pack.address}}</td>
+            <td>{{pack.city}}</td>
+            <td>{{pack.country}}</td>
+        </tr>
+    </table>
+</div>

@@ -2,6 +2,7 @@ package com.prz.systemkurier.repository.impl;
 
 import com.prz.systemkurier.criteria.Criteria;
 import com.prz.systemkurier.repository.AbstractRepository;
+import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
@@ -13,11 +14,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class AbstractRepositoryImpl<T> implements AbstractRepository<T> {
 
     @Autowired
     private SessionFactory sessionFactory;
+
+    private Logger logger = Logger.getLogger(AbstractRepository.class);
 
     private Class<T> clazz;
 
@@ -30,7 +32,12 @@ public class AbstractRepositoryImpl<T> implements AbstractRepository<T> {
     }
 
     public void save(Object o) throws SQLException {
-        getCurrentSession().save(o);
+        try {
+            getCurrentSession().save(o);
+        } catch (Exception e) {
+            logger.error("Exception occured during invocation of save()", e);
+            throw new SQLException(e);
+        }
     }
 
     public List<T> getAll() throws SQLException {

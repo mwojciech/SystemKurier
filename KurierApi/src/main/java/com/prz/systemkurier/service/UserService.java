@@ -23,4 +23,6 @@ public interface UserService {
     List<User> getUsersWithCriteriaPaginated(Criteria criteria);
 
     Integer countUsersWithCriteria(Criteria criteria);
+
+    void updateUser(User user) throws SQLException;
 }

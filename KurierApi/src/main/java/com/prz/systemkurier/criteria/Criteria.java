@@ -1,6 +1,5 @@
 package com.prz.systemkurier.criteria;
 
-//wyrzucic
 public class Criteria {
 
     private int limit;

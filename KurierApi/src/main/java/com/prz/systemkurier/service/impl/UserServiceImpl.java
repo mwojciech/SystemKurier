@@ -4,6 +4,7 @@ import com.prz.systemkurier.criteria.Criteria;
 import com.prz.systemkurier.domain.Role;
 import com.prz.systemkurier.domain.User;
 import com.prz.systemkurier.enumerate.RoleName;
+import com.prz.systemkurier.enumerate.Status;
 import com.prz.systemkurier.repository.RoleRepository;
 import com.prz.systemkurier.repository.UserRepository;
 import com.prz.systemkurier.service.UserService;
@@ -15,10 +16,9 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
-
 @Service
 @Transactional
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
@@ -35,11 +35,14 @@ public class UserServiceImpl implements UserService{
     }
 
     public void saveUser(User user) throws SQLException {
-       user.setRole(roleRepository.getByName(RoleName.KURIER));
-       userRepository.save(user);
+        user.setRole(roleRepository.getByName(RoleName.KURIER));
+        System.out.println(user.getRole());
+        user.setCreateDate(new Date());
+        user.setStatus(Status.ACTIVE);
+        userRepository.save(user);
     }
 
-    public void saveRole() throws SQLException{
+    public void saveRole() throws SQLException {
         Role role = new Role();
         role.setCreateDate(new Date());
         role.setName(RoleName.KURIER);
@@ -58,7 +61,7 @@ public class UserServiceImpl implements UserService{
     }
 
     public List<User> getUsersWithCriteriaPaginated(Criteria criteria) {
-        if(null == criteria.getOrderWay() || null == criteria.getOrderParam()){
+        if (null == criteria.getOrderWay() || null == criteria.getOrderParam()) {
             criteria.setOrderWay("ASC");
             criteria.setOrderParam("lastName");
         }
@@ -67,5 +70,9 @@ public class UserServiceImpl implements UserService{
 
     public Integer countUsersWithCriteria(Criteria criteria) {
         return userRepository.countWithCriteria(criteria);
+    }
+
+    public void updateUser(User user) throws SQLException {
+        userRepository.update(user);
     }
 }
