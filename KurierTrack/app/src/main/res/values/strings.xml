@@ -8,4 +8,8 @@
     <string name="btn_json_obj_request">JsonObject</string>
     <string name="btn_json_array_request">JsonArray</string>
 
+    <string name="simple_direction">Simple Direction</string>
+    <string name="transit_direction">Transit Direction</string>
+    <string name="alternative_direction">Alternative Direction</string>
+    <string name="request_direction">Request Direction</string>
 </resources>

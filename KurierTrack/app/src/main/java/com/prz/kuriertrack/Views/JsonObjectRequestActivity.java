@@ -33,7 +33,7 @@ public class JsonObjectRequestActivity extends Activity {
 	private TextView msgResponse;
 	private ProgressDialog pDialog;
 
-    public static final String URL = "http://api.androidhive.info/volley/person_object.json";
+    public static final String URL = "http://192.168.0.101:8080/rest/packs/all";
 	// These tags will be used to cancel the requests
 	private String tag_json_obj = "jobj_req";
 
@@ -96,9 +96,9 @@ public class JsonObjectRequestActivity extends Activity {
 			@Override
 			protected Map<String, String> getParams() {
 				Map<String, String> params = new HashMap<String, String>();
-				params.put("name", "Androidhive");
+				/*params.put("name", "Androidhive");
 				params.put("email", "abc@androidhive.info");
-				params.put("pass", "password123");
+				params.put("pass", "password123");*/
 
 				return params;
 			}

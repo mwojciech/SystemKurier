@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="horizontal"
+
+    android:weightSum="1">
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/tvName"
+		android:layout_marginLeft="20dp" android:text="test" android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="test"
+
+        android:id="@+id/tvDesc"
+        android:layout_below="@+id/tvName"
+        android:layout_alignLeft="@+id/tvName"
+        android:layout_alignStart="@+id/tvName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="test"
+        android:layout_marginRight="4dp"
+        android:id="@+id/tvStreet"
+        android:layout_below="@+id/tvDesc"
+        android:layout_alignLeft="@+id/tvDesc"
+        android:layout_alignStart="@+id/tvDesc" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="test"
+        android:id="@+id/tvAddress"
+        android:layout_toRightOf="@+id/tvStreet"
+        android:layout_alignBaseline="@+id/tvStreet"
+         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="test"
+        android:id="@+id/tvCity"
+        android:layout_below="@+id/tvStreet"
+        android:layout_alignLeft="@+id/tvStreet"
+        android:layout_alignStart="@+id/tvStreet" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="test"
+        android:id="@+id/tvCountry"
+        android:layout_alignTop="@+id/tvCity"
+        android:layout_toRightOf="@+id/tvCity"
+        android:layout_toEndOf="@+id/tvCity"
+        android:layout_marginLeft="4dp" />
+
+
+</RelativeLayout>
