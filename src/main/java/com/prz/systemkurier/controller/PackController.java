@@ -45,18 +45,17 @@ public class PackController extends PaginationController<Pack> {
 
     @RequestMapping(value = "/pack", method = RequestMethod.POST)
     public ResponseEntity<Void> savePack(@RequestBody Pack pack) throws SQLException {
-        logger.info("test");
-
+        //logger.info("test");
         packService.savePack(pack);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
-
     @RequestMapping(value = "/packToUpdate", method = RequestMethod.POST)
     public ResponseEntity<Void> updatePack(@RequestBody Pack pack) throws SQLException {
         packService.updatePack(pack);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
+    //test
     @RequestMapping(value = "/packs/paginated", method = RequestMethod.GET)
     public ResponseEntity<List<Pack>> getPaginatedPacks() {
         List<Pack> pack = new ArrayList<Pack>();
