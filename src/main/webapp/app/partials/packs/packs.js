@@ -8,8 +8,6 @@ angular.module('stApp.packs', ['ngRoute'])
     }])
     .controller('PackCtrl', function(PackSrv, $scope, $rootScope){
 
-
-
         $scope.getPacks = function(){
             var promise = PackSrv.packs()
                 .success(function(result){

@@ -7,9 +7,6 @@ angular.module('stApp.userSrv', [])
             },
             user : function(user){
                 return $http.post('../rest/users/user', user);
-            },
-            userForUpdate : function(user){
-                return $http.post('../rest/users/userToUpdate', user);
             }
         }
     });

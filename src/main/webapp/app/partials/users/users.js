@@ -8,10 +8,6 @@ angular.module('stApp.users', ['ngRoute'])
     }])
     .controller('UserCtrl', function(UserSrv, $scope, $rootScope){
 
-        //$scope.$on('viewContentLoaded', function(){
-        //    $scope.getUsers();
-        //})
-
         $scope.getUsers = function(){
             var promise = UserSrv.users()
                 .success(function(result){
