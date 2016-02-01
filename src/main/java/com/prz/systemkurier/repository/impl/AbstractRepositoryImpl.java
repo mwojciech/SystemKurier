@@ -35,7 +35,7 @@ public class AbstractRepositoryImpl<T> implements AbstractRepository<T> {
         try {
             getCurrentSession().save(o);
         } catch (Exception e) {
-            logger.error("Exception occured during invocation of save()", e);
+            logger.error("Exception in save()", e);
             throw new SQLException(e);
         }
     }

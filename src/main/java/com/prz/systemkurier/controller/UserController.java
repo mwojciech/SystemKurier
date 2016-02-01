@@ -2,7 +2,7 @@ package com.prz.systemkurier.controller;
 
 import com.prz.systemkurier.criteria.Criteria;
 import com.prz.systemkurier.domain.User;
-import com.prz.systemkurier.dto.PaginationData;
+//import com.prz.systemkurier.dto.PaginationData;
 import com.prz.systemkurier.service.RoleService;
 import com.prz.systemkurier.service.UserService;
 import org.apache.log4j.Logger;
@@ -21,7 +21,7 @@ import java.util.List;
 
 @RequestMapping("/users")
 @RestController
-public class UserController extends PaginationController<User> {
+public class UserController {
 
     @Autowired
     private UserService userService;
@@ -31,12 +31,12 @@ public class UserController extends PaginationController<User> {
 
     private Logger logger = Logger.getLogger(UserController.class);
 
-    @Override
+   /* @Override
     public PaginationData<User> fetch(Criteria criteria) throws Exception {
         List<User> data = userService.getUsersWithCriteriaPaginated(criteria);
         Integer totalItems = userService.countUsersWithCriteria(criteria);
         return new PaginationData<User>(totalItems, data);
-    }
+    }*/
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public List<User> getAll() throws SQLException {

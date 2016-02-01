@@ -26,7 +26,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         UserDetails userDetails = null;
         try {
-            com.prz.systemkurier.domain.User userData = userRepository.getByIndexNumber(new Long(indexNumber));
+            com.prz.systemkurier.domain.User userData = userRepository.getByCredentials("KURIER", "KURIER");
 
         } catch (SQLException e) {
             e.printStackTrace();

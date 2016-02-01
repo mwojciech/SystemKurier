@@ -28,10 +28,8 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         System.out.println("startup");
         registry.addResourceHandler("/resources*//**").addResourceLocations("/resources/");
-        registry.addResourceHandler("/app/img/**").addResourceLocations("/app/img/");//.setCachePeriod(31556926);
         registry.addResourceHandler("/app/libs/**").addResourceLocations("/app/libs/");
         registry.addResourceHandler("/app/css/**").addResourceLocations("/app/css/");
-        registry.addResourceHandler("/app/fonts/**").addResourceLocations("/app/fonts/");
     }
 
     @Bean
@@ -80,5 +78,4 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter {
         MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
         return converter;
     }
-
 }

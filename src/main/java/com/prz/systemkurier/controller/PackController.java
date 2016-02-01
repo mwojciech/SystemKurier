@@ -2,7 +2,7 @@ package com.prz.systemkurier.controller;
 
 import com.prz.systemkurier.criteria.Criteria;
 import com.prz.systemkurier.domain.Pack;
-import com.prz.systemkurier.dto.PaginationData;
+//import com.prz.systemkurier.dto.PaginationData;
 import com.prz.systemkurier.service.PackService;
 import com.prz.systemkurier.service.RoleService;
 import org.apache.log4j.Logger;
@@ -21,22 +21,19 @@ import java.util.List;
 
 @RequestMapping("/packs")
 @RestController
-public class PackController extends PaginationController<Pack> {
+public class PackController {
 
     @Autowired
     private PackService packService;
 
-    @Autowired
-    private RoleService roleService;
+    //private Logger logger = Logger.getLogger(PackController.class);
 
-    private Logger logger = Logger.getLogger(PackController.class);
-
-    @Override
+    /*@Override
     public PaginationData<Pack> fetch(Criteria criteria) throws Exception {
         List<Pack> data = packService.getPacksWithCriteriaPaginated(criteria);
         Integer totalItems = packService.countPacksWithCriteria(criteria);
         return new PaginationData<Pack>(totalItems, data);
-    }
+    }*/
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public List<Pack> getAll() throws SQLException {
@@ -45,17 +42,17 @@ public class PackController extends PaginationController<Pack> {
 
     @RequestMapping(value = "/pack", method = RequestMethod.POST)
     public ResponseEntity<Void> savePack(@RequestBody Pack pack) throws SQLException {
-        //logger.info("test");
         packService.savePack(pack);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
-    @RequestMapping(value = "/packToUpdate", method = RequestMethod.POST)
+
+   /* @RequestMapping(value = "/packToUpdate", method = RequestMethod.POST)
     public ResponseEntity<Void> updatePack(@RequestBody Pack pack) throws SQLException {
         packService.updatePack(pack);
         return new ResponseEntity<Void>(HttpStatus.OK);
-    }
+    }*/
+/*
 
-    //test
     @RequestMapping(value = "/packs/paginated", method = RequestMethod.GET)
     public ResponseEntity<List<Pack>> getPaginatedPacks() {
         List<Pack> pack = new ArrayList<Pack>();
@@ -66,5 +63,5 @@ public class PackController extends PaginationController<Pack> {
             return new ResponseEntity<List<Pack>>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<List<Pack>>(pack, HttpStatus.OK);
-    }
+    }*/
 }

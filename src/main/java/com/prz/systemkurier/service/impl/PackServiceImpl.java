@@ -32,23 +32,4 @@ public class PackServiceImpl implements PackService {
         packRepository.save(pack);
     }
 
-    public List<Pack> getAllPacksPaginated(Criteria criteria) throws SQLException {
-        return packRepository.getPaginated(criteria);
-    }
-
-    public List<Pack> getPacksWithCriteriaPaginated(Criteria criteria) {
-        if (null == criteria.getOrderWay() || null == criteria.getOrderParam()) {
-            criteria.setOrderWay("ASC");
-            criteria.setOrderParam("name");
-        }
-        return packRepository.getWithCriteriaPaginated(criteria);
-    }
-
-    public Integer countPacksWithCriteria(Criteria criteria) {
-        return packRepository.countWithCriteria(criteria);
-    }
-
-    public void updatePack(Pack pack) throws SQLException {
-        packRepository.update(pack);
-    }
 }

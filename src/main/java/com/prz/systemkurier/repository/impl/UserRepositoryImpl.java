@@ -42,9 +42,4 @@ public class UserRepositoryImpl extends AbstractRepositoryImpl<User> implements 
         users = getCurrentSession().createCriteria(User.class).add(Restrictions.eq("roleName", roleName)).list();
         return users;
     }
-
-    public User getByIndexNumber(Long indexNumber) throws SQLException {
-        return (User) getCurrentSession().createCriteria(User.class)
-                .add(Restrictions.eq("indexNumber", indexNumber)).uniqueResult();
-    }
 }

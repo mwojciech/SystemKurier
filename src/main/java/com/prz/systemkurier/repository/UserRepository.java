@@ -17,5 +17,4 @@ public interface UserRepository extends AbstractRepository<User>{
 
     List<User> getByRoleName(RoleName roleNames) throws SQLException;
 
-    User getByIndexNumber(Long indexNumber) throws SQLException;
 }
